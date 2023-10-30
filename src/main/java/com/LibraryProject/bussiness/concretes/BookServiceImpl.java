@@ -1,6 +1,6 @@
-package com.LibraryProject.bussiness.concretes.Books;
+package com.LibraryProject.bussiness.concretes;
 
-import com.LibraryProject.bussiness.abstracts.Books.BookService;
+import com.LibraryProject.bussiness.abstracts.BookService;
 import com.LibraryProject.entities.Books;
 import com.LibraryProject.repositories.BooksRepository;
 import com.LibraryProject.utils.Error_Messages;
@@ -25,12 +25,14 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Books> searchByName(String BookName) {
-        return booksRepository.findBooksByName(BookName);
+//        return booksRepository.findBooksByName(BookName);
+        return null;
     }
 
     @Override
-    public List<Books> searchByBarcode(String Barcode) {
-        return booksRepository.findBooksByBarcode(Barcode);
+    public List<Books> findBooksByBarcode(String barcode) {
+        List<Books> list = booksRepository.findBooksByBarcode(barcode);
+        return booksRepository.findBooksByBarcode(barcode);
     }
 
     @Override
@@ -61,8 +63,7 @@ public class BookServiceImpl implements BookService {
         try {
             booksRepository.delete(book);
             return true;
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }

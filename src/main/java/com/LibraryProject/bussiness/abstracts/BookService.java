@@ -1,4 +1,4 @@
-package com.LibraryProject.bussiness.abstracts.Books;
+package com.LibraryProject.bussiness.abstracts;
 
 import com.LibraryProject.entities.Books;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public interface BookService {
 
     List<Books> searchByName(String BookName);
 
-    List<Books> searchByBarcode(String Barcode);
+    List<Books> findBooksByBarcode(String Barcode);
 
     Long save(Books book);
 

@@ -1,9 +1,8 @@
 package com.LibraryProject.apis;
 
 
-import com.LibraryProject.bussiness.concretes.Books.BookServiceImpl;
+import com.LibraryProject.bussiness.concretes.BookServiceImpl;
 import com.LibraryProject.entities.Books;
-import org.apache.el.parser.BooleanNode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +23,18 @@ public class BookController {
         return bookService.getBooks();
     }
 
+    @GetMapping("/searchBook")
+    public List<Books> searchBook(@RequestBody String barcode)
+    {
+        List<Books> booksList = bookService.findBooksByBarcode(barcode);
+        return bookService.findBooksByBarcode(barcode);
+    }
+
+    @GetMapping("/searchBook2")
+    public List<Books> searchBook2(@RequestParam("barcode") String barcode)
+    {
+        return bookService.findBooksByBarcode(barcode);
+    }
 
     @PostMapping("/addbook")
     public ResponseEntity<Long> saveBook(@RequestBody Books book){
@@ -34,7 +45,6 @@ public class BookController {
     public ResponseEntity<Books> updateBook(@RequestBody Books book){
         return ResponseEntity.ok(bookService.update(book));
     }
-
 
     @DeleteMapping("/deletebook")
     public ResponseEntity<Boolean> deleteBook(@RequestBody Books book){

@@ -2,6 +2,7 @@ package com.LibraryProject.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -15,7 +16,8 @@ public class Books {
     private String type;
     private Double unit_price;
     private String information_of_book;
-    private Timestamp dob;
+    private Date dob;
+    private Integer author_id;
 
     private String Barcode;
 
@@ -75,12 +77,21 @@ public class Books {
         this.information_of_book = information_of_book;
     }
 
-    public Timestamp getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(Timestamp dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    @OneToMany
+    public Integer getAuthor_id() {
+        return author_id;
+    }
+
+    public void setAuthor_id(Integer author_id) {
+        this.author_id = author_id;
     }
 
     @Override
