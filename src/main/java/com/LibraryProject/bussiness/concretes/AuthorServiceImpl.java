@@ -3,16 +3,16 @@ package com.LibraryProject.bussiness.concretes;
 import com.LibraryProject.bussiness.abstracts.AuthorService;
 import com.LibraryProject.entities.Authors;
 import com.LibraryProject.repositories.AuthorRepository;
-import org.hibernate.mapping.Filterable;
+import org.springframework.stereotype.Component;
 
-import java.util.Map;
 import java.util.List;
 import java.util.Optional;
 
 
+@Component
 public class AuthorServiceImpl implements AuthorService {
 
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
 
     public AuthorServiceImpl(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
