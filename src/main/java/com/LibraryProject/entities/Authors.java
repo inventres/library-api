@@ -7,7 +7,7 @@ import java.sql.Date;
 @Table(name = "authors")
 public class Authors {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long author_id;
     private String name;
     private String biography;

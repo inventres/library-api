@@ -25,7 +25,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Long save(Authors authors) {
-         return  authorRepository.save(authors).getAuthor_id();
+         return authorRepository.save(authors).getAuthor_id();
     }
 
     @Override
